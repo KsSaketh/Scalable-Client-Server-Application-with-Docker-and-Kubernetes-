@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatserver-dp
+spec:
+  selector:
+    matchLabels:
+      type: back-end
+      app: chatserver
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        type: back-end
+        app: chatserver
+    spec:
+      containers:
+        - image: saketh360/chatserver
+          name: chatserver
